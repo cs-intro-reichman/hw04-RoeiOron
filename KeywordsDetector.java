@@ -13,21 +13,27 @@ public class KeywordsDetector {
             "Our new technology presents a significant paradigm shift",
             "Effective presentations must be clear, concise, and humble"
         };
-        // Some keywords that typically signal bullshit contents in business presentations 
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
         detectAndPrint(sentences, keywords);
     }
 
+    public static void detectAndPrint(String[] sentences, String[] keywords) {
 
-        public static void detectAndPrint(String[] sentences, String[] keywords) {
-        for (int i = 0; i < sentences.length; i++) {
-            for (int j = 0; j < keywords.length; j++ ) {
-                String lowersentence = sentences[i].toLowerCase();
-                String lowerkeyword = keywords[j].toLowerCase();
-                if (lowersentence.indexOf(lowerkeyword) != -1) {
-                    System.out.println(sentences[i]);
-                    break;
+        for (String sentence : sentences) {
+            
+            String lowerCaseSentence = sentence.toLowerCase();
+            
+            for (String keyword : keywords) {
+                
+                String lowerCaseKeyword = keyword.toLowerCase();
+                
+                if (lowerCaseSentence.contains(lowerCaseKeyword)) {
+                    
+                    System.out.println(sentence);
+                    
+                    break; 
                 }
             }
         }
     }
+}
